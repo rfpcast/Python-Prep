@@ -1,6 +1,7 @@
 # Importante: No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
 # código dentro de las funciones ya definidas.
 
+
 def Factorial(numero):
     '''
     Esta función devuelve el factorial del número pasado como parámetro.
@@ -11,8 +12,20 @@ def Factorial(numero):
         Factorial(4) debe retornar 24
         Factorial(-2) debe retornar nulo
     '''
-    #Tu código aca:
-    return 'Funcion incompleta'
+    # Tu código aca:
+
+    if type(numero) != int or numero <= 0:
+        return None
+    else:
+        return __Factorial(numero)
+
+
+def __Factorial(num):
+
+    if num > 1:
+        num = num * __Factorial(num-1)
+    return num
+
 
 def EsPrimo(valor):
     '''
@@ -25,9 +38,22 @@ def EsPrimo(valor):
         EsPrimo(7) debe retornar True
         EsPrimo(8) debe retornar False
     '''
-    #Tu código aca:
-    return 'Funcion incompleta'
-    
+    # Tu código aca:
+
+    respuesta = True
+
+    if type(valor) != int:
+        respuesta = None
+    elif valor < 2:
+        respuesta = False
+    else:
+        for i in range(2, valor):
+            if valor % i == 0:
+                respuesta = False
+                break
+    return respuesta
+
+
 def ClaseAnimal(especie, color):
     '''
     Esta función devuelve un objeto instanciado de la clase Animal, 
@@ -46,5 +72,17 @@ def ClaseAnimal(especie, color):
         a.CumpliAnios() -> debe devolver 2
         a.CumpliAnios() -> debe devolver 3
     '''
-    #Tu código aca:
-    return 'Funcion incompleta'
+    # Tu código aca:
+
+    class claseAnimal:
+        def __init__(self, edad, especie, color):
+            self.edad = edad
+            self.especie = especie
+            self.color = color
+
+        def CumplirAnios(self):
+            self.edad = self.edad + 1
+            return self.edad
+
+    objeto = claseAnimal(0, especie, color)
+    return objeto
