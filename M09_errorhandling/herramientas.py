@@ -2,7 +2,8 @@ class Herramientas:
     def __init__(self, lista_numeros):
         if (type(lista_numeros) != list):
             self.lista = []
-            raise ValueError('Se ha creado una lista vacía. Se esperaba una lista de núemeros enteros')  
+            raise ValueError(
+                'Se ha creado una lista vacía. Se esperaba una lista de núemeros enteros')
         else:
             self.lista = lista_numeros
 
@@ -16,7 +17,7 @@ class Herramientas:
         return lista_primos
 
     def conversion_grados(self, origen, destino):
-        parametros_esperados = ['celsius','kelvin','farenheit']
+        parametros_esperados = ['celsius', 'kelvin', 'farenheit']
         lista_conversion = []
         if str(origen) not in parametros_esperados:
             print('Los parametros esperados son:', parametros_esperados)
@@ -25,9 +26,10 @@ class Herramientas:
             print('Los parametros esperados son:', parametros_esperados)
             return lista_conversion
         for i in self.lista:
-            lista_conversion.append(self.__conversion_grados(i, origen, destino))
+            lista_conversion.append(
+                self.__conversion_grados(i, origen, destino))
         return lista_conversion
-    
+
     def factorial(self):
         lista_factorial = []
         for i in self.lista:
@@ -92,9 +94,9 @@ class Herramientas:
         return valor_destino
 
     def __factorial(self, numero):
-        if(type(numero) != int):
+        if (type(numero) != int):
             return 'El numero debe ser un entero'
-        if(numero < 0):
+        if (numero < 0):
             return 'El numero debe ser pisitivo'
         if (numero > 1):
             numero = numero * self.__factorial(numero - 1)
